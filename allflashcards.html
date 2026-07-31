@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>All Flashcards 2</title>
+  <title>All Flashcards 3</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -30,37 +30,32 @@
     }
     .flashcard {
       width: 280px;
-      min-height: 180px;
-      perspective: 1000px;
       cursor: pointer;
-      position: relative;
+      perspective: 1000px;
     }
     .card-inner {
       position: relative;
       width: 100%;
-      min-height: 100%;
       transition: transform 0.8s;
       transform-style: preserve-3d;
     }
     .flashcard.flipped .card-inner {
       transform: rotateY(180deg);
-      z-index: 10; /* bring flipped card above neighbors */
-      position: relative;
+      z-index: 10;
     }
     .card-front, .card-back {
-      position: absolute;
       width: 100%;
-      min-height: 100%;
-      backface-visibility: hidden;
+      height: auto; /* allow natural expansion */
       border: 1px solid #ccc;
       border-radius: 8px;
       padding: 15px;
       box-sizing: border-box;
       font-size: 16px;
-      line-height: 1.5; /* better spacing */
-      white-space: pre-wrap; /* preserve spaces and line breaks */
+      line-height: 1.4; /* normal spacing */
+      white-space: normal; /* fix word spacing and numbering */
       word-break: break-word;
       text-align: left;
+      backface-visibility: hidden;
     }
     .card-front {
       background-color: #ffffff;
@@ -70,6 +65,9 @@
       background-color: #0066cc;
       color: #fff;
       transform: rotateY(180deg);
+      position: absolute;
+      top: 0;
+      left: 0;
     }
     /* Modal for maximize view */
     .modal {
