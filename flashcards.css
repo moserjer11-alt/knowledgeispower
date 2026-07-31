@@ -1,0 +1,25 @@
+/* CSS Document */
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Liturgical Norms Flashcards</title>
+  <link rel="stylesheet" href="flashcards.css">
+</head>
+<body>
+  <h1>Liturgical Norms Flashcards</h1>
+
+  <!-- Flashcard container -->
+  <div id="flashcard"></div>
+
+  <!-- Navigation buttons -->
+  <div id="controls">
+    <button id="prev">Previous</button>
+    <button id="flip">Flip</button>
+    <button id="next">Next</button>
+  </div>
+
+  <script src="flashcards.js"></script>
+</body>
+</html>
