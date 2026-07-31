@@ -67,7 +67,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   cardInner.addEventListener("touchstart", (e) => {
     touchStartX = e.changedTouches[0].screenX;
-  });
+  }, { passive: true });
+
+  cardInner.addEventListener("touchmove", (e) => {
+    // prevent vertical scroll if swipe is horizontal
+    const dx = e.changedTouches[0].screenX - touchStartX;
+    const dy = e.changedTouches[0].screenY;
+    if (Math.abs(dx) > Math.abs(dy)) {
+      e.preventDefault();
+    }
+  }, { passive: false });
 
   cardInner.addEventListener("touchend", (e) => {
     touchEndX = e.changedTouches[0].screenX;
@@ -75,15 +84,19 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function handleSwipe() {
-    const swipeDistance = touchEndX - touchStartX;
-    if (Math.abs(swipeDistance) > 50) { // threshold
-      if (swipeDistance < 0 && currentIndex < qaPairs.length - 1) {
-        currentIndex++;
-        showCard();
-      } else if (swipeDistance > 0 && currentIndex > 0) {
-        currentIndex--;
-        showCard();
-      }
+  const swipeDistance = touchEndX - touchStartX;
+  if (Math.abs(swipeDistance) > 50) { // threshold
+    // Hide hints after first swipe
+    document.querySelectorAll(".swipe-hint").forEach(h => h.style.display = "none");
+
+    if (swipeDistance < 0 && currentIndex < qaPairs.length - 1) {
+      currentIndex++;
+      showCard();
+    } else if (swipeDistance > 0 && currentIndex > 0) {
+      currentIndex--;
+      showCard();
     }
   }
+}
+
 });
