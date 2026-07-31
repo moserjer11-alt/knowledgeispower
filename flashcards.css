@@ -91,3 +91,29 @@ button:hover {
     min-width: 80px;
   }
 }
+
+/* Swipe hint arrows */
+.swipe-hint {
+  position: absolute;
+  top: 50%;
+  font-size: 2em;
+  color: rgba(74, 144, 226, 0.5); /* semi-transparent blue */
+  transform: translateY(-50%);
+  pointer-events: none; /* don’t block clicks/touches */
+  animation: pulse 2s infinite;
+}
+
+.swipe-left {
+  left: 10px;
+}
+
+.swipe-right {
+  right: 10px;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.3; }
+}
+
