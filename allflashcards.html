@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>All Flashcards 44</title>
+  <title>All Flashcards</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -25,51 +25,38 @@
     .flashcard-container {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      grid-template-rows: repeat(2, auto); /* force two rows */
       gap: 20px;
       justify-items: center;
     }
     .flashcard {
       width: 280px;
       cursor: pointer;
-      perspective: 1000px;
-    }
-    .card-inner {
-      position: relative;
-      width: 100%;
-      transition: transform 0.8s;
-      transform-style: preserve-3d;
-    }
-    .flashcard.flipped .card-inner {
-      transform: rotateY(180deg);
-      z-index: 10;
-    }
-    .card-front, .card-back {
-      width: 100%;
-      height: auto;
       border: 1px solid #ccc;
       border-radius: 8px;
+      background: #fff;
       padding: 15px;
       box-sizing: border-box;
+      text-align: left;
+    }
+    .card-front, .card-back {
       font-size: 16px;
       line-height: 1.4;
-      white-space: normal; /* preserve numbering properly */
+      white-space: normal;
       word-break: break-word;
-      text-align: left;
-      backface-visibility: hidden;
-      position: relative;
-    }
-    .card-front {
-      background-color: #ffffff;
-      color: #333;
     }
     .card-back {
-      background-color: #0066cc;
+      display: none; /* hidden until flipped */
+      background: #0066cc;
       color: #fff;
-      transform: rotateY(180deg);
-      position: absolute;
-      top: 0;
-      left: 0;
+      border-radius: 8px;
+      padding: 10px;
+      margin-top: 10px;
+    }
+    .flashcard.flipped .card-front {
+      display: none;
+    }
+    .flashcard.flipped .card-back {
+      display: block;
     }
     .expand-btn {
       display: inline-block;
@@ -160,15 +147,13 @@
             const card = document.createElement('div');
             card.className = 'flashcard';
             card.innerHTML = `
-              <div class="card-inner">
-                <div class="card-front">
-                  ${question}
-                  <button class="expand-btn">Expand</button>
-                </div>
-                <div class="card-back">
-                  ${answer}
-                  <button class="expand-btn">Expand</button>
-                </div>
+              <div class="card-front">
+                ${question}
+                <button class="expand-btn">Expand</button>
+              </div>
+              <div class="card-back">
+                ${answer}
+                <button class="expand-btn">Expand</button>
               </div>
             `;
             // Flip on tap
