@@ -6,38 +6,60 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      text-align: center;
-      margin: 50px;
       background-color: #f9f9f9;
+      margin: 50px;
+      text-align: center;
     }
     h1 {
       color: #333;
+      margin-bottom: 40px;
+    }
+    .main-menu {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
     }
     .menu {
-      margin-top: 40px;
+      background-color: #e6e6e6;
+      padding: 20px;
+      border-radius: 8px;
+      width: 220px;
     }
-    .menu button {
+    .menu h2 {
+      margin-bottom: 15px;
+      color: #004c99;
+    }
+    .submenu a {
       display: block;
-      width: 200px;
-      margin: 15px auto;
-      padding: 12px;
+      margin: 8px 0;
+      text-decoration: none;
+      color: #0066cc;
       font-size: 16px;
-      background-color: #0066cc;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
     }
-    .menu button:hover {
-      background-color: #004c99;
+    .submenu a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
   <h1>Knowledge is Power</h1>
-  <div class="menu">
-    <button onclick="location.href='flashcards.html'">Flashcards</button>
-    <button onclick="location.href='Liturgicalnorms.html'">Liturgical Norms</button>
+  <div class="main-menu">
+    <!-- Liturgical Norms Menu -->
+    <div class="menu">
+      <h2>Liturgical Norms</h2>
+      <div class="submenu">
+        <a href="Liturgicalnorms.html">Essential Norms</a>
+        <a href="flashcards.html">Flashcards</a>
+      </div>
+    </div>
+
+    <!-- Essential Documents Menu -->
+    <div class="menu">
+      <h2>Essential Documents</h2>
+      <div class="submenu">
+        <!-- Add links here later -->
+      </div>
+    </div>
   </div>
 </body>
 </html>
