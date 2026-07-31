@@ -45,8 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   flipBtn.addEventListener("click", flipCard);
-
-  // Flip on click/touch of the card itself
   cardInner.addEventListener("click", flipCard);
   cardInner.addEventListener("touchstart", flipCard);
 
@@ -63,4 +61,30 @@ document.addEventListener("DOMContentLoaded", () => {
       showCard();
     }
   });
+
+  // Swipe detection
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  cardInner.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  cardInner.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  });
+
+  function handleSwipe() {
+    const swipeDistance = touchEndX - touchStartX;
+    if (Math.abs(swipeDistance) > 50) { // threshold
+      if (swipeDistance < 0 && currentIndex < qaPairs.length - 1) {
+        currentIndex++;
+        showCard();
+      } else if (swipeDistance > 0 && currentIndex > 0) {
+        currentIndex--;
+        showCard();
+      }
+    }
+  }
 });
