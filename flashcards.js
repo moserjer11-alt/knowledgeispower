@@ -46,7 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   flipBtn.addEventListener("click", flipCard);
   cardInner.addEventListener("click", flipCard);
-  cardInner.addEventListener("touchstart", flipCard);
 
   nextBtn.addEventListener("click", () => {
     if (currentIndex < qaPairs.length - 1) {
