@@ -21,6 +21,7 @@ h1 {
 .card-inner {
   position: relative;
   width: 100%;
+  min-height: 200px;          /* ensures space for content */
   transition: transform 0.6s;
   transform-style: preserve-3d;
 }
@@ -31,7 +32,10 @@ h1 {
 
 .card-front, .card-back {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  min-height: 200px;
   backface-visibility: hidden;
   background: #ffffff;
   border: 2px solid #4a90e2;
