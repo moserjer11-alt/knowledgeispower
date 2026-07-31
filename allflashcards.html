@@ -26,6 +26,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      align-items: stretch; /* cards stretch vertically */
       gap: 20px;
     }
     .flashcard {
@@ -33,6 +34,7 @@
       min-height: 180px;
       perspective: 1000px;
       cursor: pointer;
+      flex: 1 1 auto;
     }
     .card-inner {
       position: relative;
@@ -43,6 +45,7 @@
     }
     .flashcard.flipped .card-inner {
       transform: rotateY(180deg);
+      z-index: 10; /* bring flipped card to front */
     }
     .card-front, .card-back {
       position: absolute;
@@ -57,8 +60,9 @@
       padding: 15px;
       box-sizing: border-box;
       font-size: 16px;
-      white-space: pre-wrap;
-      word-wrap: break-word;
+      line-height: 1.4; /* better spacing */
+      white-space: pre-wrap; /* preserve spaces and line breaks */
+      word-break: break-word; /* prevent overflow */
     }
     .card-front {
       background-color: #ffffff;
@@ -91,6 +95,7 @@
       overflow-y: auto;
       text-align: left;
       font-size: 18px;
+      line-height: 1.6;
       white-space: pre-wrap;
     }
     .close {
