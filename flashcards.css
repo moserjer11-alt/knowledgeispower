@@ -1,25 +1,56 @@
-/* CSS Document */
+/* General page styling */
+body {
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  text-align: center;
+  margin: 20px;
+}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Liturgical Norms Flashcards</title>
-  <link rel="stylesheet" href="flashcards.css">
-</head>
-<body>
-  <h1>Liturgical Norms Flashcards</h1>
+h1 {
+  color: #2c3e50;
+}
 
-  <!-- Flashcard container -->
-  <div id="flashcard"></div>
+/* Flashcard box */
+#flashcard {
+  background: #fff;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  width: 60%;              /* responsive width */
+  min-height: 150px;       /* ensures a base size */
+  margin: 30px auto;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+  line-height: 1.4em;
+  word-wrap: break-word;
+  white-space: pre-wrap;   /* allows multiline text */
+  transition: transform 0.3s ease;
+}
 
-  <!-- Navigation buttons -->
-  <div id="controls">
-    <button id="prev">Previous</button>
-    <button id="flip">Flip</button>
-    <button id="next">Next</button>
-  </div>
+#flashcard:hover {
+  transform: scale(1.02);
+}
 
-  <script src="flashcards.js"></script>
-</body>
-</html>
+/* Navigation buttons */
+#controls {
+  margin-top: 20px;
+}
+
+button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  border: none;
+  background: #2c3e50;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+button:hover {
+  background: #34495e;
+}
+
