@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>All Flashcards</title>
+  <title>All Flashcards 1</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -23,13 +23,15 @@
       border-radius: 5px;
     }
     .flashcard-container {
-      display: grid; /* use grid instead of flex */
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 20px;
     }
     .flashcard {
-      perspective: 1000px;
+      width: 280px;
       cursor: pointer;
+      perspective: 1000px;
     }
     .card-inner {
       position: relative;
@@ -39,22 +41,20 @@
     }
     .flashcard.flipped .card-inner {
       transform: rotateY(180deg);
-      z-index: 10;
     }
     .card-front, .card-back {
-      position: absolute;
+      position: relative;
       width: 100%;
-      min-height: 180px;
-      backface-visibility: hidden;
       border: 1px solid #ccc;
       border-radius: 8px;
       padding: 15px;
       box-sizing: border-box;
       font-size: 16px;
-      line-height: 1.5; /* proper spacing */
-      white-space: pre-wrap; /* preserve spaces and line breaks */
+      line-height: 1.5;
+      white-space: pre-wrap;
       word-break: break-word;
       text-align: left;
+      min-height: 180px;
     }
     .card-front {
       background-color: #ffffff;
@@ -64,6 +64,10 @@
       background-color: #0066cc;
       color: #fff;
       transform: rotateY(180deg);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
     }
     /* Modal for maximize view */
     .modal {
@@ -142,7 +146,7 @@
             `;
             card.addEventListener('click', () => card.classList.toggle('flipped'));
             card.addEventListener('dblclick', () => {
-              document.getElementById('modalText').innerText = 
+              document.getElementById('modalText').innerText =
                 "Q: " + question + "\n\nA: " + answer;
               document.getElementById('flashcardModal').style.display = 'block';
             });
@@ -161,20 +165,4 @@
           });
         });
 
-        document.getElementById('closeModal').onclick = () => {
-          document.getElementById('flashcardModal').style.display = 'none';
-        };
-        window.onclick = (event) => {
-          if (event.target === document.getElementById('flashcardModal')) {
-            document.getElementById('flashcardModal').style.display = 'none';
-          }
-        };
-      })
-      .catch(err => {
-        document.getElementById('flashcardContainer').innerText = 
-          'Error loading flashcards. Make sure Liturgicalnorms.html is accessible.';
-        console.error(err);
-      });
-  </script>
-</body>
-</html>
+        document
