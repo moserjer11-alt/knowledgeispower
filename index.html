@@ -14,30 +14,49 @@
       color: #333;
       margin-bottom: 40px;
     }
+    /* Main menu container */
     .main-menu {
       display: flex;
       justify-content: center;
-      gap: 60px;
+      gap: 20px; /* reduced spacing between menus */
     }
+    /* Each top-level menu */
     .menu {
+      position: relative;
       background-color: #e6e6e6;
-      padding: 20px;
+      padding: 15px 25px;
       border-radius: 8px;
-      width: 220px;
-    }
-    .menu h2 {
-      margin-bottom: 15px;
+      cursor: pointer;
+      font-weight: bold;
       color: #004c99;
+    }
+    /* Submenu styling */
+    .submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      min-width: 200px;
+      text-align: left;
+      padding: 10px;
+      z-index: 100;
     }
     .submenu a {
       display: block;
-      margin: 8px 0;
+      padding: 8px;
       text-decoration: none;
       color: #0066cc;
-      font-size: 16px;
+      font-size: 15px;
     }
     .submenu a:hover {
-      text-decoration: underline;
+      background-color: #f0f0f0;
+    }
+    /* Show submenu on hover */
+    .menu:hover .submenu {
+      display: block;
     }
   </style>
 </head>
@@ -46,7 +65,7 @@
   <div class="main-menu">
     <!-- Liturgical Norms Menu -->
     <div class="menu">
-      <h2>Liturgical Norms</h2>
+      Liturgical Norms
       <div class="submenu">
         <a href="Liturgicalnorms.html">Essential Norms</a>
         <a href="flashcards.html">Flashcards</a>
@@ -55,9 +74,9 @@
 
     <!-- Essential Documents Menu -->
     <div class="menu">
-      <h2>Essential Documents</h2>
+      Essential Documents
       <div class="submenu">
-        <!-- Add links here later -->
+        <!-- Add submenu links here later -->
       </div>
     </div>
   </div>
